@@ -1,5 +1,5 @@
 ## [Posto Médico UEMA](http://www.postomedico.ga)
-Aplicação front-end destinada ao posto médico da Universidade Estadual do Maranhão - UEMA
+Aplicação front-end destinada ao posto médico da Universidade Estadual do Maranhão - UEMA que irá consumir dados da API [Posto Médico API](https://github.com/alexilallas/API-RESTful-com-Laravel5.7)
 
 
 ### Tecnologias Utilizadas
@@ -12,16 +12,16 @@ Aplicação front-end destinada ao posto médico da Universidade Estadual do Mar
 
 Por se tratar de uma aplicação que utiliza a plataforma do NodeJS, primeiro se deve baixar as bibliotecas utilizadas no projeto através do comando
 
- <code> npm install</code>
+ `npm install`
  
 No projeto foi utilizado o CLI do Angular que facilita no desenvolvimento, possibilitando criar componentes, serviços, módulos e demais elementos da estrutura do Angular pela linha de comando.
 Para sua instalação, se utiliza o seguinte comando.
 
-<code>npm install -g @angular/cli</code>
+`npm install -g @angular/cli`
 
 Com o Angular CLI também podemos subir a aplicação para o servidor local através do seguinte comando
 
-> <code> ng serve </code>
+> `ng serve`
 > Este comando irá compilar todo o projeto, transformando o código Typescript em JavaScript para que o navegador possa interpreta-lo.
 
 A aplicação poderá ser acessada pela URL padrão
@@ -44,7 +44,7 @@ A aplicação poderá ser acessada pela URL padrão
 |-- tsconfig.json
 |--- ...
 ````
-O pontilhado representa outros diretórios que fazem parte das bibliotecas utilizadas e não precisamos mexer.
+O pontilhado representa outros diretórios que fazem parte do padrão da framework e não precisamos mexer.
 	
 
  - **node_modules** - Diretório que fica armazenado as bibliotecas baixadas pelo npm. As bibliotecas definidas no `package.json` são baixadas e colocadas nesta pasta.
@@ -75,7 +75,7 @@ Embora não se utilize durante o desenvolvimento, para que a aplicação possa s
 
 Para gerar a versão da aplicação que irá para o servidor, será utilizado o comando 
 
-><code> ng build </code>
+> `ng build`
 > Este comando irá compilar todo  o projeto e gerar uma versão otimizada e ilegível do código-fonte para que seja rodada em um servidor Apache.
 
 A saída desse comando será a criação da pasta **dist** na raiz do projeto.
