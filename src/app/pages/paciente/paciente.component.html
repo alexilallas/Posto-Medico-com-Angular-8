@@ -3,7 +3,8 @@
   <div class="">
     <div class="card card-user">
       <div class="card-header">
-        <h5 class="card-title">Novo Paciente</h5>
+        <h5 class="card-title" *ngIf="!form.id">Novo Paciente</h5>
+        <h5 class="card-title" *ngIf="form.id">Editar Paciente</h5>
       </div>
       <div class="card-body">
         <form #pacienteForm="ngForm" (ngSubmit)="isNewPaciente ? save() : update()">

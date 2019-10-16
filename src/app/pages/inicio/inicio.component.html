@@ -112,7 +112,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Ano Referência</label>
-            <ng-select [multiple]="false" [clearable]="false" [(ngModel)]="form.ano" name="ano" #ano="ngModel" (change)="getChartByAno()">
+            <ng-select [multiple]="false" [searchable]="false" [clearable]="false" [(ngModel)]="form.ano" name="ano" #ano="ngModel" (change)="getChartByAno()">
               <ng-option *ngFor="let ano of _ano_referencia" selected="true" [value]="ano">{{ ano }}</ng-option>
             </ng-select>
           </div>

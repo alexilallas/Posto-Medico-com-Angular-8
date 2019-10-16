@@ -1,4 +1,9 @@
-.table.dataTable thead th, table.dataTable thead td {
-  padding: 5px;
-  font-size: smaller;
+@media only screen and (max-width: 600px) {
+  .table.dataTable thead th, table.dataTable thead td {
+    padding: 5px;
+    font-size: 8px;
+  }
+  tbody {
+    font-size: 9px;
+  }
 }
