@@ -19,6 +19,13 @@ export class PacienteComponent extends DatatablesComponent implements OnInit {
   public _sexo = ['Masculino', 'Feminino'];
   public _estado_civil = ['Solteiro(a)', 'Casado(a)', 'Viúvo(a)'];
   public _tipo_paciente = ['Aluno', 'Funcionário', 'Dependente', 'Comunidade', 'Serviço Prestado'];
+  public _cursos = ['ADMINISTRAÇÃO', 'ARQUITETURA E URBANISMO', 'AGRONOMIA', 'CIÊNCIAS BIOLÓGICAS', 
+  'CIÊNCIAS SOCIAIS', 'CIÊNCIAS - HABILITAÇÃO EM BIOLOGIA', 'CIÊNCIAS - HABILITAÇÃO EM FÍSICA', 
+  'CIÊNCIAS - HABILITAÇÃO EM MATEMÁTICA', 'CIÊNCIAS - HABILITAÇÃO EM QUÍMICA', 'DIREITO', 'ENGENHARIA CIVIL', 
+  'ENGENHARIA DE PESCA', 'ENGENHARIA DA COMPUTAÇÃO', 'ENGENHARIA DA PRODUÇÃO', 'ENGENHARIA MECÂNICA', 
+  'FORMAÇÃO DE OFICIAIS - POLÍCIA MILITAR', 'FORMAÇÃO DE OFICIAIS - BOMBEIRO MILITAR', 'FILOSOFIA', 'FÍSICA', 
+  'GEOGRAFIA', 'HISTÓRIA', 'LETRAS', 'MATEMÁTICA', 'MEDICINA VETERINÁRIA', 'MÚSICA', 'PEDAGOGIA', 'QUÍMICA', 'ZOOTECNIA'];
+  public _setores = [];
 
   public form: any = new Paciente();
   public modal = 'pacienteModal';
