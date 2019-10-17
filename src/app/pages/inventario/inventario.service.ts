@@ -14,6 +14,7 @@ export class InventarioService {
 
   static itemCreatedAlert;
   static itemUpdatedAlert;
+  static itemDeletedAlert;
   private inventarioUrl: string;
 
   constructor
@@ -25,7 +26,7 @@ export class InventarioService {
     this.inventarioUrl = environment.baseAPI + 'inventario'
   }
 
-  getItens(): Observable<Inventario[]> {
+  getItens(): Observable<any[]> {
     return this.http.get<Inventario[]>(this.inventarioUrl)
       .pipe(map((response: any) => response.data.itens));
 
@@ -62,6 +63,20 @@ export class InventarioService {
           this.messageService.message(response)
           if (response.status == 200) {
             InventarioService.itemUpdatedAlert.emit(response)
+          }
+        }
+      )
+  }
+
+  delete(id: number){
+    InventarioService.itemDeletedAlert = new EventEmitter<any>()
+    return this.http.delete<any>(
+      this.inventarioUrl + '/' + id)
+      .subscribe(
+        (response) => {
+          this.messageService.message(response)
+          if (response.status == 200) {
+            InventarioService.itemDeletedAlert.emit(response)
           }
         }
       )

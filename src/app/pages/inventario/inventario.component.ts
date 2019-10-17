@@ -18,8 +18,9 @@ export class InventarioComponent extends DatatablesComponent implements OnInit {
 
   public _tipo_medicamento = ['Injetável', 'Oral'];
 
-  public form = new Inventario();
+  public form: any = new Inventario();
   public modal = 'inventarioModal';
+  public modalDelete = 'inventarioModalDelete';
   public itensInventario: Inventario[] = [];
   public isNewItem: boolean = true;
   public faPills: IconDefinition = faPills;
@@ -90,10 +91,35 @@ export class InventarioComponent extends DatatablesComponent implements OnInit {
     this.inventarioService.updateItem(this.form)
   }
 
+  openFormDelete(id) {
+    this.inventarioService.getItemById(id)
+      .subscribe(response => {
+        this.form = response
+      })
+    this.ngxSmartModalService.open(this.modalDelete)
+  }
+
+  delete() {
+    let id = this.form.id
+    this.inventarioService.delete(id)
+    InventarioService.itemDeletedAlert.subscribe(
+      () => {
+        this.getItens()
+        this.closeDeleteForm()
+        InventarioService.itemDeletedAlert.isStopped = true
+      }
+    )
+  }
+
   close() {
     this.isNewItem = true
     this.eraseForm()
     this.ngxSmartModalService.close(this.modal)
+  }
+
+  closeDeleteForm() {
+    this.eraseForm()
+    this.ngxSmartModalService.close(this.modalDelete)
   }
 
   eraseForm() {

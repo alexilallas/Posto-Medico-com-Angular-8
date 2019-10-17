@@ -22,6 +22,7 @@ export class PacienteComponent extends DatatablesComponent implements OnInit {
 
   public form: any = new Paciente();
   public modal = 'pacienteModal';
+  public modalDelete = 'pacienteModalDelete';
   public pacientes: any[];
   public isNewPaciente: boolean = true;
 
@@ -93,10 +94,35 @@ export class PacienteComponent extends DatatablesComponent implements OnInit {
     this.pacienteService.updatePaciente(this.form)
   }
 
+  openFormDelete(id) {
+    this.pacienteService.getPacienteById(id)
+      .subscribe(response => {
+        this.form = response
+      })
+    this.ngxSmartModalService.open(this.modalDelete)
+  }
+
+  delete() {
+    let id = this.form.id
+    this.pacienteService.delete(id)
+    PacienteService.pacienteDeletedAlert.subscribe(
+      () => {
+        this.getPacientes()
+        this.closeDeleteForm()
+        PacienteService.pacienteDeletedAlert.isStopped = true
+      }
+    )
+  }
+
   close() {
     this.isNewPaciente = true
     this.eraseForm()
     this.ngxSmartModalService.close(this.modal)
+  }
+
+  closeDeleteForm() {
+    this.eraseForm()
+    this.ngxSmartModalService.close(this.modalDelete)
   }
 
   eraseForm() {

@@ -1,3 +1,16 @@
+<ngx-smart-modal #usuarioModalDelete identifier="usuarioModalDelete" [dismissable]="false">
+    <div class="card-body">
+      <h5 class="card-title">Deseja excluir este Usuário?</h5>
+      <div class="card-body">
+        <p><strong>NOME:</strong> {{form.name}}</p>
+        <p><strong>PERFIL:</strong> {{form.perfil}}</p>
+
+        <p>Ao excluir este usuário, todos seus dados serão perdidos deseja continuar?</p>
+      </div>
+      <div class="btn btn-default" (click)="closeDeleteForm()">Cancelar</div>
+      <button class="btn btn-danger pull-right" (click)="delete()">Excluir</button>
+    </div>
+  </ngx-smart-modal>
 <ngx-smart-modal #resetPasswordModal identifier="resetPasswordModal" [dismissable]="false"
   (onCloseFinished)="eraseForm()">
   <div class="card-body">
@@ -110,7 +123,8 @@
                     (click)="openFormresetPassword(user.id)">
                     <i class="fa fa-refresh fa-2x"></i>
                   </button>
-                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir">
+                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir"
+                  (click)="openFormDelete(user.id)">
                     <i class="fa fa-times fa-2x"></i>
                   </button>
                 </td>

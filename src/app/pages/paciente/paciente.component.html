@@ -1,3 +1,15 @@
+<ngx-smart-modal #pacienteModalDelete identifier="pacienteModalDelete" [dismissable]="false">
+  <div class="card-body">
+    <h5 class="card-title">Deseja excluir este paciente?</h5>
+    <div class="card-body">
+      <p><strong>PACIENTE:</strong> {{form.nome}}</p>
+      <p><strong>TIPO:</strong> {{form.tipo}}</p>
+      <p>Ao excluir, todos seus dados serão perdidos, deseja continuar?</p>
+    </div>
+    <div class="btn btn-default" (click)="closeDeleteForm()">Cancelar</div>
+    <button class="btn btn-danger pull-right" (click)="delete()">Excluir</button>
+  </div>
+</ngx-smart-modal>
 <ngx-smart-modal #pacienteModal identifier="pacienteModal" customClass="medium-modal" [dismissable]="false"
   (onCloseFinished)="eraseForm()">
   <div class="">
@@ -223,7 +235,8 @@
                     (click)="openFormEdit(paciente.id)">
                     <i class="fa fa-edit fa-2x"></i>
                   </button>
-                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir">
+                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir"
+                  (click)="openFormDelete(paciente.id)">
                     <i class="fa fa-times fa-2x"></i>
                   </button>
                 </td>

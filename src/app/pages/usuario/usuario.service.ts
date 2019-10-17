@@ -13,6 +13,7 @@ export class UsuarioService {
 
   static usuarioCreatedAlert;
   static usuarioUpdatedAlert;
+  static usuarioDeletedAlert;
   private usuarioUrl: string;
 
   constructor
@@ -81,4 +82,17 @@ export class UsuarioService {
       )
   }
 
+  delete(id: number){
+    UsuarioService.usuarioDeletedAlert = new EventEmitter<any>()
+    return this.http.delete<any>(
+      this.usuarioUrl + '/' + id)
+      .subscribe(
+        (response) => {
+          this.messageService.message(response)
+          if (response.status == 200) {
+            UsuarioService.usuarioDeletedAlert.emit(response)
+          }
+        }
+      )
+  }
 }

@@ -14,6 +14,7 @@ export class PacienteService {
 
   static pacienteCreatedAlert;
   static pacienteUpdatedAlert;
+  static pacienteDeletedAlert;
   private pacientesUrl: string;
 
   constructor
@@ -67,4 +68,17 @@ export class PacienteService {
       )
   }
 
+  delete(id: number){
+    PacienteService.pacienteDeletedAlert = new EventEmitter<any>()
+    return this.http.delete<any>(
+      this.pacientesUrl + '/' + id)
+      .subscribe(
+        (response) => {
+          this.messageService.message(response)
+          if (response.status == 200) {
+            PacienteService.pacienteDeletedAlert.emit(response)
+          }
+        }
+      )
+  }
 }

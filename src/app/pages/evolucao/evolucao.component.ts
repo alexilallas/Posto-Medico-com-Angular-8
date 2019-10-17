@@ -3,9 +3,10 @@ import { formatDate } from '@angular/common';
 
 import { Evolucao } from './evolucao';
 import { EvolucaoService } from './evolucao.service';
-import { InventarioService } from '../inventario/inventario.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { HelperService } from '../../helper/helper.service';
 import { environment } from '../../../environments/environment';
+import { InventarioService } from '../inventario/inventario.service';
 import { faPills, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { DatatablesComponent } from '../../shared/datatables/datatables.component';
 
@@ -31,6 +32,7 @@ export class EvolucaoComponent extends DatatablesComponent implements OnInit {
       public ngxSmartModalService: NgxSmartModalService,
       private evolucaoService: EvolucaoService,
       private inventarioService: InventarioService,
+      private helperService: HelperService,
   ) {
     super();
     console.log('EvolucaoComponent')
@@ -42,7 +44,13 @@ export class EvolucaoComponent extends DatatablesComponent implements OnInit {
     this.getPacientes()
     this.inventarioService.getItens()
       .subscribe(response => {
-        this._medicamentos = response
+        this._medicamentos = response.map(item => {
+          if(item.dose > 0) {
+            return item
+          }
+        })
+        this._medicamentos = this.helperService.filterArray(this._medicamentos)
+        console.log(this._medicamentos)
       })
   }
 

@@ -18,6 +18,7 @@ export class UsuarioComponent extends DatatablesComponent implements OnInit {
 
   public form: any = new Usuario();
   public modal = 'usuarioModal';
+  public modalDelete = 'usuarioModalDelete';
   public modalResetPassword = 'resetPasswordModal';
   public usuarios: any[];
   public isNewUsuario: boolean = true;
@@ -98,10 +99,35 @@ export class UsuarioComponent extends DatatablesComponent implements OnInit {
     this.usuarioService.updateUsuario(this.form)
   }
 
+  openFormDelete(id) {
+    this.usuarioService.getUsuarioById(id)
+      .subscribe(response => {
+        this.form = response
+      })
+    this.ngxSmartModalService.open(this.modalDelete)
+  }
+
+  delete() {
+    let id = this.form.id
+    this.usuarioService.delete(id)
+    UsuarioService.usuarioDeletedAlert.subscribe(
+      () => {
+        this.getUsuarios()
+        this.closeDeleteForm()
+        UsuarioService.usuarioDeletedAlert.isStopped = true
+      }
+    )
+  }
+
   close() {
     this.isNewUsuario = true
     this.eraseForm()
     this.ngxSmartModalService.close(this.modal)
+  }
+
+  closeDeleteForm() {
+    this.eraseForm()
+    this.ngxSmartModalService.close(this.modalDelete)
   }
 
   eraseForm() {

@@ -1,3 +1,16 @@
+<ngx-smart-modal #inventarioModalDelete identifier="inventarioModalDelete" [dismissable]="false">
+    <div class="card-body">
+      <h5 class="card-title">Deseja excluir este item?</h5>
+      <div class="card-body">
+        <p><strong>ITEM:</strong> {{form.nome}}</p>
+        <p><strong>TIPO:</strong> {{form.tipo}}</p>
+        <p><strong>DOSE:</strong> {{form.dose}}</p>
+        <p>Ao excluir este item, todos seus dados serão perdidos deseja continuar?</p>
+      </div>
+      <div class="btn btn-default" (click)="closeDeleteForm()">Cancelar</div>
+      <button class="btn btn-danger pull-right" (click)="delete()">Excluir</button>
+    </div>
+  </ngx-smart-modal>
 <ngx-smart-modal #inventarioModal identifier="inventarioModal" customClass="medium-modal" [dismissable]="false"
   (onCloseFinished)="eraseForm()">
   <div class="card-body">
@@ -80,7 +93,8 @@
                     (click)="openFormEdit(item.id)">
                     <i class="fa fa-edit fa-2x"></i>
                   </button>
-                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir">
+                  <button class="btn btn-danger btn-icon btn-sm " type="button" title="Excluir"
+                  (click)="openFormDelete(item.id)">
                     <i class="fa fa-times fa-2x"></i>
                   </button>
                 </td>
