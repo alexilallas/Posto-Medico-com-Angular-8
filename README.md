@@ -21,7 +21,7 @@ Para sua instalação, se utiliza o seguinte comando.
 
 Com o Angular CLI também podemos subir a aplicação para o servidor local através do seguinte comando
 
-> `ng serve`
+`ng serve`
 > Este comando irá compilar todo o projeto, transformando o código Typescript em JavaScript para que o navegador possa interpreta-lo.
 
 A aplicação poderá ser acessada pela URL padrão
@@ -75,7 +75,7 @@ Embora não se utilize durante o desenvolvimento, para que a aplicação possa s
 
 Para gerar a versão da aplicação que irá para o servidor, será utilizado o comando 
 
-> `ng build`
+`ng build`
 > Este comando irá compilar todo  o projeto e gerar uma versão otimizada e ilegível do código-fonte para que seja rodada em um servidor Apache.
 
 A saída desse comando será a criação da pasta **dist** na raiz do projeto.
