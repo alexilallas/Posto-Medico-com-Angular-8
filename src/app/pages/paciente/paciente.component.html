@@ -82,18 +82,18 @@
             <div class="col-md-8" *ngIf="form.tipo == 'Aluno'">
               <div class="form-group">
                 <label>Curso</label>
-                <ng-select [multiple]="false" [clearable]="false" [(ngModel)]="form.curso"
-                  name="curso" #curso="ngModel">
-                  <ng-option *ngFor="let curso of _cursos" selected="true" [value]="curso">{{ curso }}</ng-option>
+                <ng-select [multiple]="false" [clearable]="false" [(ngModel)]="form.curso_setor"
+                  name="curso_setor" #curso_setor="ngModel">
+                  <ng-option *ngFor="let item of _cursos" selected="true" [value]="item">{{ item }}</ng-option>
                 </ng-select>
               </div>
             </div>
             <div class="col-md-8" *ngIf="form.tipo == 'Funcionário'">
               <div class="form-group">
-                <label>Setor</label>
-                <ng-select [multiple]="false" [clearable]="false" [(ngModel)]="form.setor"
-                  name="setor" #setor="ngModel">
-                  <ng-option *ngFor="let setor of _setores" selected="true" [value]="setor">{{ setor }}</ng-option>
+                <label>Curso/Setor</label>
+                <ng-select [multiple]="false" [clearable]="false" [(ngModel)]="form.curso_setor"
+                  name="curso_setor" #curso_setor="ngModel">
+                  <ng-option *ngFor="let item of _setores" selected="true" [value]="item">{{ item }}</ng-option>
                 </ng-select>
               </div>
             </div>
