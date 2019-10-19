@@ -72,7 +72,7 @@ O conteúdo de ambos os arquivos será o export da contante `environment`, o atr
 
 ### Implantação
 
-Embora não se utilize durante o desenvolvimento, para que a aplicação possa subir para o ambiente de teste/produção, será necessário um servidor Apache.
+Embora não se utilize durante o desenvolvimento, para que a aplicação possa subir para o ambiente de teste/produção, será necessário um servidor HTTP.
 
 Para gerar a versão da aplicação que irá para o servidor, será utilizado o comando 
 
@@ -80,4 +80,4 @@ Para gerar a versão da aplicação que irá para o servidor, será utilizado o 
 > Este comando irá compilar todo  o projeto e gerar uma versão otimizada e ilegível do código-fonte para que seja rodada em um servidor Apache.
 
 A saída desse comando será a criação da pasta **dist** na raiz do projeto.
-Você pode mover essa pasta para a raiz do Apache e rodar o projeto normalmente.
+Você pode mover essa pasta para a raiz do seu servidor HTTP e rodar o projeto normalmente.
