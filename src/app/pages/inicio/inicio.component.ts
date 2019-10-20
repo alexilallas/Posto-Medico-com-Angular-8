@@ -27,6 +27,7 @@ export class InicioComponent implements OnInit {
   public _ano_referencia: any = [];
 
   public form: any = new Array;
+  public loading: boolean = false;
 
   public canvas: any;
   public ctx;
@@ -203,6 +204,7 @@ export class InicioComponent implements OnInit {
   }
 
   getChartByAno() {
+    this.loading = true
     this.inicioService.getChartByAno(this.form.ano)
       .subscribe(response => {
         this.atendimentoEnfermagem = response.atendimentoEnfermagem
@@ -212,6 +214,7 @@ export class InicioComponent implements OnInit {
         this.frequenciaAtendimentoConsultas = response.frequenciaAtendimentoConsultas
         this.frequenciaAtendimentoChart()
         this.quantidadeAtendimentoChart()
+        this.loading = false
       })
   }
 }

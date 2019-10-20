@@ -31,6 +31,8 @@ export class RelatorioComponent implements OnInit {
   public chartColor;
   public chartRelatorioAnual;
 
+  public loading: boolean = false;
+
   constructor(
     public relatorioService: RelatorioService,
   ) {
@@ -52,6 +54,7 @@ export class RelatorioComponent implements OnInit {
     this.removeEmpty()
 
     if (this.form.tipo_atendimento && this.form.ano_atendimento) {
+      this.loading = true
       this.relatorioService.getRelatorioData(this.form)
         .subscribe(response => {
           this.relatorioAnual = Object.values(response.data.relatorioAnual)
@@ -59,6 +62,7 @@ export class RelatorioComponent implements OnInit {
           this.trataDadosRelatorio()
           this.relatorioAnualChartPizza()
           this.relatorioAnualChartLine()
+          this.loading = false
         })
     }
   }
