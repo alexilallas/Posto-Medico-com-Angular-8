@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  baseAPI: 'http://localhost:8000/api/',
+  baseAPI: 'https://www.apipostomedico.ga/api/',
   dtOptions: {
     pagingType: 'full_numbers',
     pageLength: 5,
