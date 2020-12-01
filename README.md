@@ -1,5 +1,5 @@
 ## [Posto Médico UEMA](http://www.postomedico.ga)
-Aplicação front-end destinada ao posto médico da Universidade Estadual do Maranhão - UEMA que irá consumir dados da API [Posto Médico API](https://github.com/alexilallas/API-RESTful-com-Laravel5.7)
+Aplicação front-end destinada ao posto médico da Universidade Estadual do Maranhão - UEMA que irá consumir dados da API [Posto Médico API](https://github.com/alexilallas/API-RESTful-com-Laravel)
 
 ![Posto Médico](src/assets/img/Postomedico-readme.png)
 
